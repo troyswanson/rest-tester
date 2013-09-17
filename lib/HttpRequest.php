@@ -86,7 +86,7 @@ class HttpRequestLine {
 	}
 	
 	public function __get($name) {
-        return $this->$name;
+		return $this->$name;
 	}
 }
 
@@ -114,7 +114,7 @@ class HttpRequestMessage {
 	}
 	
 	public function __get($name) {
-        return $this->$name;
+		return $this->$name;
 	}
 }
 
@@ -128,7 +128,7 @@ class HttpStatusLine {
 	}
 	
 	public function __get($name) {
-        return $this->$name;
+		return $this->$name;
 	}
 }
 
@@ -146,14 +146,12 @@ class HttpResponseMessage {
 		
 		$this->status_line = new HttpStatusLine($lines[0]);
 		
-		//var_dump(array_slice($lines, 1, array_search("", $lines)-1));
-		
 		$this->headers = new HttpHeaders(array_slice($lines, 1, array_search("", $lines)-1));
 		$this->body = implode("\r\n", array_slice($lines, array_search("", $lines)+1));
 	}
 	
 	public function __get($name) {
-        return $this->$name;
+		return $this->$name;
 	}
 	
 	public function __toString() {
